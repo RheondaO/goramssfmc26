@@ -351,8 +351,9 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
     // Extract only the display strings for the stepper UI
     stepLabels: stepLabels.map(s => s.display), 
     currentStep: 0,
+    
     async onStepChange(stepIndex) {
-        const contentArea = document.querySelector('.content-area');
+       // const contentArea = document.querySelector('.content-area');
         
         // 1. Get the specific file slug from our object array
         const stepData = stepLabels[stepIndex];
@@ -371,10 +372,20 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
             contentArea.innerHTML = `<p>Error loading ${stepData.display}</p>`;
         }
 
-        // Update buttons
+        // // Disable Back if on first step
         prevBtn.disabled = stepIndex === 0;
-        nextBtn.disabled = stepIndex === stepLabels.length - 1;
-        nextBtn.textContent = stepIndex === stepLabels.length - 1 ? 'Finish' : 'Next →';
+
+        // Handle "Next" vs "Finish!"
+            if (stepIndex === stepLabels.length - 1) {
+                nextBtn.textContent = 'Finish!';
+                nextBtn.classList.add('finish-style'); // Optional: for CSS styling
+            } else {
+                nextBtn.textContent = 'Next →';
+                nextBtn.classList.remove('finish-style');
+            }
+        
+        /* nextBtn.disabled = stepIndex === stepLabels.length - 1;
+        nextBtn.textContent = stepIndex === stepLabels.length - 1 ? 'Finish' : 'Next →'; */
     }
 });
         
@@ -382,7 +393,8 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
     prevBtn.addEventListener('click', () => stepper.previous());
     nextBtn.addEventListener('click', () => {
         if (stepper.isLastStep()) {
-            alert('Workflow Complete! 🎉');
+            //Success Message
+            alert('Congratulations! You have completed the SFMC SDLC Showcase. 🎉');
         } else {
             stepper.next();
         }
