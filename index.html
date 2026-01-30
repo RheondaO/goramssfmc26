@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workflow Stepper Preview</title>
+    <title>VCU SFMC Candidate Showcase</title>
     <style>
         * {
             margin: 0;
@@ -304,7 +304,7 @@
 <body>
     <div class="container">
         
-        <h1>Work Sample - Rheonda D. Ogletree</h1>
+        <h1>Work Sample - January 2026 - Rheonda D. Ogletree</h1>
         
         <div class="demo-section">
             <div class="demo-title">SFMC Integrated Systems: A Pre-Implementation Lifecycle Showcase</div>
@@ -327,18 +327,19 @@
     
     <script src="progressive-stepper.js"></script>
     <script>
+        
     // 1. Step Labels (as they appear in the UI)
-      const stepLabels = [
-        'Overview',
-        'Discovery',
-        'Design',
-        'Data',
-        'Development',
-        'Testing',
-        'Dashboard',
-        'Calculator',
-        'Manual'
-      ];
+const stepLabels = [
+    { display: 'Overview', file: 'overview' },
+    { display: 'Discovery', file: 'discovery' },
+    { display: 'Architecture', file: 'design' },
+    { display: 'Data Schema', file: 'data' },
+    { display: 'Development', file: 'development' },
+    { display: 'Testing & Validation', file: 'testing' },"
+    { display: 'Analytics', file: 'dashboard' },
+    { display: 'Calculator', file: 'calculator' },
+    { display: 'Conclusion', file: 'manual' }
+];
 /*
       const stepContent = [
         { title: 'Overview: The Roadmap', description: 'Welcome to the SFMC Systems Development Lifecycle (SDLC) Showcase. This site simulates end-to-end development of a Student Financial Gap Calculator, transitioning from vague definitions to a high-integrity technical solution for the SFMC @ VCU. Find the Next button below.' },
@@ -373,31 +374,35 @@ const nextBtn = document.getElementById('nextBtn');
 const contentArea = document.querySelector('.content-area');
 
 const stepper = new ProgressiveStepper('interactive-stepper', {
-  totalSteps: 9,
-  stepLabels,
-  currentStep: 0,
-  async onStepChange(stepIndex) {
-    // 1. Format the filename based on your lowercase + 2-digit index setup
-    const stepNumber = String(stepIndex).padStart(2, '0');
-    const stepName = stepLabels[stepIndex].toLowerCase();
-    const fileName = `${stepNumber}-${stepName}.html`;
+    totalSteps: stepLabels.length,
+    // Extract only the display strings for the stepper UI
+    stepLabels: stepLabels.map(s => s.display), 
+    currentStep: 0,
+    async onStepChange(stepIndex) {
+        const contentArea = document.querySelector('.content-area');
+        
+        // 1. Get the specific file slug from our object array
+        const stepData = stepLabels[stepIndex];
+        const stepNumber = String(stepIndex).padStart(2, '0');
+        
+        // 2. Build the filename using the 'file' key (always lowercase)
+        const fileName = `${stepNumber}-${stepData.file}.html`;
 
-    try {
-      // 2. Fetch and inject the content
-      const response = await fetch(`./${fileName}`);
-      if (!response.ok) throw new Error('File not found');
-      
-      const html = await response.text();
-      contentArea.innerHTML = html; // This replaces title and description automatically
-    } catch (error) {
-      contentArea.innerHTML = `<h2>Error</h2><p>Could not load ${fileName}.</p>`;
+        try {
+            const response = await fetch(`./${fileName}`);
+            if (!response.ok) throw new Error('File not found');
+            const html = await response.text();
+            contentArea.innerHTML = html;
+        } catch (error) {
+            console.error(error);
+            contentArea.innerHTML = `<p>Error loading ${stepData.display}</p>`;
+        }
+
+        // Update buttons
+        prevBtn.disabled = stepIndex === 0;
+        nextBtn.disabled = stepIndex === stepLabels.length - 1;
+        nextBtn.textContent = stepIndex === stepLabels.length - 1 ? 'Finish' : 'Next →';
     }
-
-    // 3. Keep your button logic
-    prevBtn.disabled = stepIndex === 0;
-    nextBtn.disabled = stepIndex === 8;
-    nextBtn.textContent = stepIndex === 8 ? 'Finish' : 'Next →';
-  }
 });
 
 // Event listeners stay the same
