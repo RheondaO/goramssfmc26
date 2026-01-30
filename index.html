@@ -3,11 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Workflow Stepper Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+.container {
+        /* max-width: 1800px; */
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .demo-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .demo-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        /* Progressive Workflow Stepper Styles */
+        .stepper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem;
+            gap: 0.5rem;
+            font-size: 1 rem;
+            font-weight: 500;
+            text-align: center;
+            color: #6b7280;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            list-style: none;
+            margin: 0;
+            scrollbar-width: none;
+            overflow-x: auto;
+        }
+
+        @media (min-width: 1150px) {
+            .stepper {
+                padding: 0.5rem;
+            }
+        }
+
+        .stepper-item {
+            display: flex;
+            align-items: center;
+            min-width: max content;
+            padding: 0.5rem;
+            background-color: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+
+        }
+        
+        /* On large screens, allow items to distribute evenly */
+        @media (min-width: 1150px) {
+            .stepper-item {
+                flex: 1 1 0;
+                min-width: inherit;
+            }
+        }
+
+        .stepper-item.active {
+            color:000000;
+            background-color: #FFB300;
+            border-color: #D19200;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+          /*  flex: auto; */
+        }
+
+        .stepper-item.completed {
+            color: #059669;
+            background-color: #ecfdf5;
+            border-color: #059669;
+        }
+        
+        .stepper-item.hidden {
+            display: none;
+        }
+
+        .stepper-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            min-height: 32px;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.75rem;
+            font-size: 1.275rem;
+            font-weight: 600;
+            border: 2px solid #D19200;
+            border-radius: 9999px;
+            flex-shrink: 0;
+            background-color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .stepper-item.active .stepper-number {
+            border-color: #D19200;
+            color: #000000;
+            background-color: #FFF1CC;
+        }
+
+        .stepper-item.completed .stepper-number {
+            border-color: #059669;
+            background-color: #059669;
+            color: white;
+        }
+
+        .stepper-text-short {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            max-width: 100%;
+        }
+        
+        .stepper-item:not(.active) {
+          max-width: 240px;
+        }
+        
+        .stepper-item:not(.active) .stepper-text-short {
+          white-space: normal;
+          /* overflow: hidden; */
+          text-overflow: clip;
+        }
+
+        .stepper-item.active .stepper-text-short {
+          white-space: normal;
+          overflow: visible;
+        }
+
+        .stepper-text-long {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+          .stepper-text-short {
+            display: none;
+          }
+        }
+        @media (max-width: 1024px) {
+          .stepper-text-short {
+            font-size: 1 rem;
+          }
+        }
+        @media (max-width: 1280px) {
+            .stepper-text-short {
+                font-size: 1 rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+          .stepper-number {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1 rem;
+          }
+        }
+
+        .stepper-item.active /* .stepper-arrow, */
+        .stepper-item.completed /* .stepper-arrow */ {
+            opacity: 1;
+        }
+        
+        .stepper-ellipsis {
+            /* display: flex; */
+            align-items: center;
+            padding: 0.75rem 0.5rem;
+            background-color: transparent;
+            border: none;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            color: #6b7280;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        /* button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        } */
+
+        .btn-prev {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .btn-prev:hover:not(:disabled) {
+            background: #4b5563;
+        }
+
+        /* .btn-prev:hover {
+            background: #4b5563;
+        } */
+
+        .btn-next {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-next:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        /* .btn-next:hover {
+            background: #1d4ed8;
+        } */
+
+        .btn-prev:disabled,
+        .btn-next:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+        /* ----------------------------------------------------------*/
+        /* ----------------------------------------------------------*/
+        /* ----------------------------------------------------------*/
+        
+        .content-area {
+            margin: 2rem 30%;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .content-area h2 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .content-area p{
+            color: #6b7280;
+            line-height: 1.6;
+        }
+    </style>
 </head>
+<!---------- MAIN CONTENT ---------->
 <body>
-    <h1>Hello, World!</h1>
-  
+    <div class="container">
+        
+        <h1>Work Sample - Rheonda D. Ogletree</h1>
+        
+        <div class="demo-section">
+            <div class="demo-title">SFMC Integrated Systems: A Pre-Implementation Lifecycle Showcase</div>
+            
+            <ol class="stepper" id="interactive-stepper"></ol>
+                
+                <div class="content-area">
+                    <h2 id="step-title">Overview: The Roadmap</h2>
+                    <p id="step-description">Welcome to the SFMC Systems Development Lifecycle (SDLC) Showcase. This site documents the end-to-end engineering of a Student Financial Gap Calculator, transitioning from vague institutional goals to a high-integrity technical solution. Follow the guided path below to explore each phase of development.</p>
+                    <!-- <div class="step-indicator" id="step-indicator">Step 0 of 8</div> -->
+                </div>
+
+                <div class="controls">
+                    <button class="btn-prev" id="prevBtn" disabled>← Previous</button>
+                    <button class="btn-next" id="nextBtn">Next →</button>
+                </div>
+            </div>
+        </div>
+    
+    
+    <script src="progressive-stepper.js"></script>
+    <script>
+      const stepLabels = [
+        'Overview',
+        'Discovery',
+        'Architecture',
+        'Data Schema',
+        'Development',
+        'Testing & Validation',
+        'Analytics',
+        'Calculator',
+        'Conclusion'
+      ];
+
+      const stepContent = [
+        { title: 'Overview: The Roadmap', description: 'Welcome to the SFMC Systems Development Lifecycle (SDLC) Showcase. This site simulates end-to-end development of a Student Financial Gap Calculator, transitioning from vague definitions to a high-integrity technical solution for the SFMC @ VCU. Find the Next button below.' },
+                           
+        { title: 'Discovery: Eliciting Requirements', description: 'Phase One focuses on substantial discovery. By consulting with SFMC stakeholders and analyzing student success workflows, we identify the core "pain points" in financial counseling. This stage translates administrative needs into technical specifications.' },
+                           
+        { title: 'Design: Architecture & Governance', description: 'Defining the blueprint. This phase outlines the integrated system design, including user-friendly interfaces and a mock approval workflow. We ensure the architecture is compatible with VCU’s existing environment while adhering to State Agency governance and reporting hierarchies.' },
+                           
+        { title: 'Data: Schema & Integrity', description: 'The foundation of stability. This page showcases the database design and relational schemas required to house student financial profiles. To maintain strict data privacy, we utilize a custom Python engine to generate high-fidelity "Dummy Data" for testing and validation.' },
+                           
+        { title: 'Development: Engineering Phase', description: 'Building succinct, timely, and stable applications. Here we implement the core calculator logic and backend automations. This phase demonstrates the selection of an optimal technology stack to create portable modules and executables that streamline SFMC staff operations.' },
+                           
+        { title: 'Testing (UAT): Validation & Quality Assurance', description: 'Ensuring accuracy through rigorous testing. This section details the Data Validation Walkthrough, where the calculator’s outputs are verified against official VCU tuition tables. We document the debugging process to ensure the final product is reliable for the user community.' },
+                           
+        { title: 'Database: Institutional Analytics', description: 'Macro-level data visualization. Utilizing Tableau Public, this "Dashbase" provides area supervisors with the ability to monitor "unmet need" trends across the student body, enabling informed decisions that enhance recruitment and persistence strategies.' },
+                           
+        { title: 'The Calculator', description: 'This interactive Financial Gap Calculator allows for real-time cost estimation. It integrates disparate data points—tuition, residency, and aid—into a single, user-friendly interface designed for maximum relevance to the SFMC mission.' },
+                           
+        { title: 'Conclusion: Documentation & Thank You!', description: 'Ensuring long-term sustainability. The final phase provides the Technical User Manual and maintenance documentation. This "handoff" ensures that the application remains accessible, documented, and ready for future software configurations or policy changes.' }
+      ];
+
+      const stepTitle = document.getElementById('step-title');
+      const stepDescription = document.getElementById('step-description');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      const stepper = new ProgressiveStepper('interactive-stepper', {
+        totalSteps: 9,
+        stepLabels,
+        currentStep: 0,
+        onStepChange(stepIndex) {
+          stepTitle.textContent = stepContent[stepIndex].title;
+          stepDescription.textContent = stepContent[stepIndex].description;
+
+          prevBtn.disabled = stepIndex === 0;
+          nextBtn.disabled = stepIndex === stepContent.length - 1;
+          nextBtn.textContent = stepIndex === stepContent.length - 1
+            ? 'Submit'
+            : 'Next →';
+        }
+      });
+
+      prevBtn.addEventListener('click', () => stepper.previous());
+      nextBtn.addEventListener('click', () => {
+        if (!stepper.next()) alert('Form submitted! 🎉');
+      });
+    </script>
 </body>
 </html>
