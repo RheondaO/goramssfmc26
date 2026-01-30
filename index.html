@@ -327,16 +327,17 @@
     
     <script src="progressive-stepper.js"></script>
     <script>
+    // 1. Step Labels (as they appear in the UI)
       const stepLabels = [
         'Overview',
         'Discovery',
-        'Architecture',
-        'Data Schema',
+        'Design',
+        'Data',
         'Development',
-        'Testing & Validation',
-        'Analytics',
+        'Testing',
+        'Dashboard',
         'Calculator',
-        'Conclusion'
+        'Manual'
       ];
 
       const stepContent = [
@@ -359,31 +360,49 @@
         { title: 'Conclusion: Documentation & Thank You!', description: 'Ensuring long-term sustainability. The final phase provides the Technical User Manual and maintenance documentation. This "handoff" ensures that the application remains accessible, documented, and ready for future software configurations or policy changes.' }
       ];
 
+        /*
       const stepTitle = document.getElementById('step-title');
       const stepDescription = document.getElementById('step-description');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
+      */
 
-      const stepper = new ProgressiveStepper('interactive-stepper', {
-        totalSteps: 9,
-        stepLabels,
-        currentStep: 0,
-        onStepChange(stepIndex) {
-          stepTitle.textContent = stepContent[stepIndex].title;
-          stepDescription.textContent = stepContent[stepIndex].description;
+// Keep these - they control the navigation
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const contentArea = document.querySelector('.content-area');
 
-          prevBtn.disabled = stepIndex === 0;
-          nextBtn.disabled = stepIndex === stepContent.length - 1;
-          nextBtn.textContent = stepIndex === stepContent.length - 1
-            ? 'Submit'
-            : 'Next →';
-        }
-      });
+const stepper = new ProgressiveStepper('interactive-stepper', {
+  totalSteps: 9,
+  stepLabels,
+  currentStep: 0,
+  async onStepChange(stepIndex) {
+    // 1. Format the filename based on your lowercase + 2-digit index setup
+    const stepNumber = String(stepIndex).padStart(2, '0');
+    const stepName = stepLabels[stepIndex].toLowerCase();
+    const fileName = `${stepNumber}-${stepName}.html`;
 
-      prevBtn.addEventListener('click', () => stepper.previous());
-      nextBtn.addEventListener('click', () => {
-        if (!stepper.next()) alert('Form submitted! 🎉');
-      });
+    try {
+      // 2. Fetch and inject the content
+      const response = await fetch(`./${fileName}`);
+      if (!response.ok) throw new Error('File not found');
+      
+      const html = await response.text();
+      contentArea.innerHTML = html; // This replaces title and description automatically
+    } catch (error) {
+      contentArea.innerHTML = `<h2>Error</h2><p>Could not load ${fileName}.</p>`;
+    }
+
+    // 3. Keep your button logic
+    prevBtn.disabled = stepIndex === 0;
+    nextBtn.disabled = stepIndex === 8;
+    nextBtn.textContent = stepIndex === 8 ? 'Finish' : 'Next →';
+  }
+});
+
+// Event listeners stay the same
+prevBtn.addEventListener('click', () => stepper.previous());
+nextBtn.addEventListener('click', () => stepper.next());
     </script>
 </body>
 </html>
