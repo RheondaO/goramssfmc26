@@ -402,12 +402,28 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
         prevBtn.disabled = stepIndex === 0;
         nextBtn.disabled = stepIndex === stepLabels.length - 1;
         nextBtn.textContent = stepIndex === stepLabels.length - 1 ? 'Finish' : 'Next →';
-    }
-});
+        
+    // 4. Navigation Listeners
+    prevBtn.addEventListener('click', () => stepper.previous());
+    nextBtn.addEventListener('click', () => {
+        if (stepper.isLastStep()) {
+            alert('Workflow Complete! 🎉');
+        } else {
+            stepper.next();
+        }
+    });
+
+    // 5. Initial Load: Trigger the first step's content immediately
+    window.addEventListener('DOMContentLoaded', () => {
+        // This ensures Step 0 content is fetched when the page opens
+        const initialStep = stepper.getCurrentStep();
+        stepper.onStepChange(initialStep); 
+    });
 
 // Event listeners stay the same
 prevBtn.addEventListener('click', () => stepper.previous());
 nextBtn.addEventListener('click', () => stepper.next());
+        
     </script>
 </body>
 </html>
