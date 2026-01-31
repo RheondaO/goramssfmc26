@@ -216,14 +216,12 @@
 
         .controls {
             display: flex;
-            justify-content: center;
-            left: 50%;
-            transform: translateX(-50%);/* horizontal centering */
-            margin-top: 2rem;
-            padding-bottom: 5rem;
-            position: absolute;
-            gap: 41rem;
-            bottom: 32px;
+            justify-content: space-between; /* Pushes buttons to the far left/right */
+            position: absolute; 
+            bottom: 32px;      /* Anchored to the bottom of the container */
+            left: 0;
+            right: 0;          /* Spans the full width of the container */
+            padding: 0 2rem;   /* Adds breathing room on the sides instead of a giant gap */
             z-index: 1000;
         }
 
