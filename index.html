@@ -344,10 +344,20 @@
     margin: 1px;
 }
 
-.yellow .box {
-    background: #FFF1CC;
-    background-color: #FFF1CC;
+.yellow-box {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    min-width: min-content;
+    max-height: -webkit-fill-available;
+    padding: 0.25rem;
+    flex-direction: column;
+    flex: 1; /* Allows the sections to grow and take equal space */
+    box-sizing: border-box; 
     border: 1px solid #D19200;
+    background-color: #FFF1CC;
+    color: #000000;
 }
 
 .scenario h3 {
@@ -388,7 +398,7 @@
     overflow-x: hidden;
     scrollbar-width: none;
     min-width: min-content;
-    max-height: -webkit-fill-available;
+    max-height: min-content;
     padding: 0.25rem;
     flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
