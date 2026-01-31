@@ -36,14 +36,18 @@
         }
 
         .demo-section {
+            display: grid;
+            height: 80vh;
             min-height: fit-content;
-            max-height: -webkit-fill-available;
+            max-height: calc(100vh - 4rem);
+            
             background: white;
             border-radius: 1rem;
             padding: 2rem;
-            margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 80vh;
+            overflow: hidden;
+            background: #000000;
+            /* margin-bottom: 2rem; */
         }
 
         .demo-title {
