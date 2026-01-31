@@ -320,7 +320,7 @@
     padding: 1.5rem;
     border-radius: 4px;
 
-    display: flex;
+    /* display: flex; */
     /* flex-direction: column; */
     gap: 2rem;
     /* margin: 2rem 30%; */
@@ -348,25 +348,26 @@
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 
 .side-by-side {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex
+    justify-content: space-around;
+    gap: 1rem; 
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .box {
-  aspect-ratio: 1 / 1;          /* forces perfect squares */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid #ccc;
-  background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    flex: 1; /* Allows the sections to grow and take equal space */
+    background-color: #f9f9f9;
+    color: #000000;
+    padding: 1rem;
+    text-align: center;
+    /* This is key for making them square and responsive: */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width */
+    aspect-ratio: 1 / 1;          /* forces perfect squares */
+    border: 1px solid #ccc;
 }
-    
-    
     </style>
 </head>
 <!---------- MAIN CONTENT ---------->
