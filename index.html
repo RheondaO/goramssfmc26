@@ -328,6 +328,8 @@
     border-radius: 4px;
     gap: 2rem;
     background: #f9fafb;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .detail h3 {
@@ -351,22 +353,24 @@
 
 .side-by-side {
     display: flex;
-    justify-content: space-around;
+    justify-content: centered;
     gap: 1rem; 
+    width: 100%;
     margin: 0 auto;
-    min-height: 200px;
-    max-height: 300px;
-    height: 80vh;
-
+    
 .box {
     display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 200px;
+    max-height: 300px;
+    padding: 0.25rem;
+    flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
     background-color: #f9f9f9;
     color: #000000;
-    padding: 0.25rem;
-    box-sizing: border-box; 
-    aspect-ratio: auto; 
-    border: 1px solid #ccc;
 }
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
