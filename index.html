@@ -343,14 +343,18 @@
     display: block;
     margin: 10px;
     line-height: 20px;
-
 }  
+
+    .detail li {
+        display: block;
+        margin: 10px;
+    }
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 
 .yellow-box {
-    display: flex;
+    display: grid;
     overflow-y: visible;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -358,7 +362,7 @@
     min-width: min-content;
     max-height: -webkit-fill-available;
     height: 50vh;
-    padding: 0.25rem;
+    /* padding: 0.25rem; */
     flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
     box-sizing: border-box; 
@@ -374,7 +378,6 @@
     gap: 1rem;
     background: #FFF1CC;
     flex-grow: 1;
-    /* overflow-y: visible; */
 }
 
 .yellow-detail h3 {
@@ -386,7 +389,6 @@
  .yellow-detail p {
     text-align: justify;
     display: block;
-
 }  
         
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
