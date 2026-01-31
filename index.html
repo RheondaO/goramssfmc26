@@ -429,11 +429,12 @@ background-color: #FFF1CC;
     
 .box {
     display: flex;
-    overflow-y: auto;
+    overflow-y: visible;
     overflow-x: hidden;
     scrollbar-width: none;
     min-width: min-content;
-    max-height: min-content;
+    max-height: -webkit-fill-available;
+    height: vh;
     padding: 0.25rem;
     flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
