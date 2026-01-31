@@ -305,6 +305,12 @@
             text-align: center;
         }
 
+.step-header {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
 .step-header h3 {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
@@ -312,9 +318,17 @@
 }
 
 .step-header p {
-    margin-bottom: 0.5rem;
-    text-align: center; 
-    margin: 1rem 20%;
+    margin: 1rem 0;
+    text-align: center;
+    height: 96px;
+    max-height: 96px;
+    padding-block: 1px;
+    padding-inline: 48px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100%
+    white-space: normal;
 }
 
 .detail {
