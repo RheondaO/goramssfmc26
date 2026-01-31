@@ -2,3 +2,85 @@
 <h2>Design: Architecture & Governance</h2>
 <p>Defining the blueprint. This phase outlines the integrated system design, including user-friendly interfaces and a mock approval workflow. We ensure the architecture is compatible with VCU’s existing environment while adhering to State Agency governance and reporting hierarchies.</p>
 </section>
+
+   <div class="grain-overlay"></div>
+    <div class="parallax-bg"></div>
+
+    <main class="showcase-container">
+        <section class="wireframe-section">
+            <div class="wireframe-wrapper">
+                <div class="image-label">01</div>
+                <div class="image-container">
+                    <img src="New Wireframe 1.png" alt="VCU SFMC Student Financial Gap Calculator" class="wireframe-image">
+                </div>
+            </div>
+            <div class="description">
+                <h3>Student Financial Gap Calculator</h3>
+                <p>Interactive calculator for VCU SFMC students to estimate financial aid gaps</p>
+            </div>
+        </section>
+
+        <section class="wireframe-section">
+            <div class="wireframe-wrapper">
+                <div class="image-label">02</div>
+                <div class="image-container">
+                    <img src="New Wireframe 1 (3).png" alt="VCU SFMC Institutional Gap Analysis Dashboard" class="wireframe-image">
+                </div>
+            </div>
+            <div class="description">
+                <h3>Institutional Gap Analysis Dashboard</h3>
+                <p>Administrative dashboard with analytics and enrollment trend visualization</p>
+            </div>
+        </section>
+
+        <section class="wireframe-section">
+            <div class="wireframe-wrapper">
+                <div class="image-label">03</div>
+                <div class="image-container">
+                    <img src="New Wireframe 1 (3).png" alt="VCU SFMC Student Financial Gap Calculator Wireframe" class="wireframe-image">
+                </div>
+            </div>
+            <div class="description">
+                <h3>Calculator Design Flow</h3>
+                <p>Complete user journey wireframe with process steps and mobile preview</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const containers = document.querySelectorAll('.image-container');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            
+            containers.forEach((container, index) => {
+                const factor = (index + 1) * 0.3;
+                container.style.transform = `
+                    translateX(${x * factor}px) 
+                    translateY(${y * factor}px)
+                    rotateX(${y * 0.1}deg)
+                    rotateY(${x * 0.1}deg)
+                `;
+            });
+        });
+
+        // Smooth scroll reveal
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.wireframe-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
