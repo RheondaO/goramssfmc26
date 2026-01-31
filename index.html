@@ -217,7 +217,7 @@
             display: flex;
             justify-content: space-between; /* Pushes buttons to the far left/right */
             position: absolute; 
-            bottom: 32px;      /* Anchored to the bottom of the container */
+            top: 32px;      /* Anchored to the bottom of the container */
             left: 0;
             right: 0;          /* Spans the full width of the container */
             padding: 0 2rem;   /* Adds breathing room on the sides instead of a giant gap */
@@ -348,11 +348,12 @@
 
 .yellow-box {
     display: flex;
-    overflow-y: auto;
+    overflow-y: visible;
     overflow-x: hidden;
     scrollbar-width: none;
     min-width: min-content;
     max-height: -webkit-fill-available;
+    height: 50vh;
     padding: 0.25rem;
     flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
@@ -369,7 +370,7 @@
     gap: 1rem;
     background: #FFF1CC;
     flex-grow: 1;
-    overflow-y: auto;
+    /* overflow-y: visible; */
 }
 
 .yellow-detail h3 {
@@ -434,7 +435,7 @@ background-color: #FFF1CC;
     scrollbar-width: none;
     min-width: min-content;
     max-height: -webkit-fill-available;
-    height: vh;
+    height: 50vh;
     padding: 0.25rem;
     flex-direction: column;
     flex: 1; /* Allows the sections to grow and take equal space */
