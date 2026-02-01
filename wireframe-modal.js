@@ -2,7 +2,7 @@
 document.addEventListener('click', function (e) {
     
     // Check if the user clicked a wireframe card (or something inside it)
-    const card = e.target.closest('.wireframe-card');
+    const card = e.target.closest('.wireframe-section');
     
     if (card) {
         const modal = document.getElementById('imageModal');
