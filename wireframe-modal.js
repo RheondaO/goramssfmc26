@@ -1,42 +1,44 @@
-    // Click to enlarge functionality
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const closeBtn = document.querySelector('.close-modal');
-    const wireframeCards = document.querySelectorAll('.wireframe-card');
+ // 1. Listen for clicks on the entire document
+document.addEventListener('click', function (e) {
+    
+    // Check if the user clicked a wireframe card (or something inside it)
+    const card = e.target.closest('.wireframe-card');
+    
+    if (card) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
 
-    wireframeCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const imageSrc = this.dataset.image;
-            const title = this.dataset.title;
-            const desc = this.dataset.desc;
-            
-            modalImage.src = imageSrc;
-            modalImage.alt = title;
-            modalTitle.textContent = title;
-            modalDesc.textContent = desc;
+        // Only proceed if the modal elements actually exist in the current HTML
+        if (modal && modalImage) {
+            modalImage.src = card.dataset.image;
+            modalImage.alt = card.dataset.title;
+            modalTitle.textContent = card.dataset.title;
+            modalDesc.textContent = card.dataset.desc;
+
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
         }
-    });
-
-    // Close with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
     }
+
+    // Check if the user clicked the close button OR the dark backdrop
+    if (e.target.classList.contains('close-modal') || e.target.id === 'imageModal') {
+        const modal = document.getElementById('imageModal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    }
+});
+
+// 2. Handle the Escape key (Global listener)
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('imageModal');
+        if (modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
