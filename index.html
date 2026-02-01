@@ -481,6 +481,52 @@ background-color: #FFF1CC;
     --accent-dim: #8b7355;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 1000;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+header {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    z-index: 10;
+    animation: fadeInDown 1s ease-out;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--text-secondary);
@@ -489,30 +535,39 @@ background-color: #FFF1CC;
     text-transform: uppercase;
 }
 
-.showcase-container {
+.descriptions-container {
     max-width: 1800px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 2rem 1rem;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 3rem;
     justify-content: center;
     align-items: flex-start;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 
-.wireframe-section {
+.showcase-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.wireframe-card {
     position: relative;
-    /* width: calc(33.333% - 2rem); */
-    min-width: 100px;
-    max-width: 400px;
+    width: calc(33.333% - 2rem);
+    min-width: 300px;
+    max-width: 500px;
     perspective: 1500px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.wireframe-section:hover {
+.wireframe-card:hover {
     z-index: 50;
 }
 
@@ -521,24 +576,27 @@ background-color: #FFF1CC;
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
     animation: float 6s ease-in-out infinite;
     transform-style: preserve-3d;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.wireframe-section:nth-child(1) .image-container {
+.wireframe-card:nth-child(1) .image-container {
     animation-delay: 0s;
 }
 
-.wireframe-section:nth-child(2) .image-container {
+.wireframe-card:nth-child(2) .image-container {
     animation-delay: -2s;
 }
 
-.wireframe-section:nth-child(3) .image-container {
+.wireframe-card:nth-child(3) .image-container {
     animation-delay: -4s;
 }
 
-.wireframe-section:hover .image-container {
+.wireframe-card:hover .image-container {
     transform: scale(1.05) translateY(-10px);
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.8),
@@ -559,7 +617,7 @@ background-color: #FFF1CC;
     pointer-events: none;
 }
 
-.wireframe-section:hover .image-container::before {
+.wireframe-card:hover .image-container::before {
     opacity: 1;
 }
 
@@ -586,7 +644,10 @@ background-color: #FFF1CC;
 }
 
 .description {
-    margin-top: 1.5rem;
+    width: calc(33.333% - 2rem);
+    min-width: 300px;
+    max-width: 500px;
+    margin-top: 0;
     text-align: center;
 }
 
@@ -601,6 +662,14 @@ background-color: #FFF1CC;
     color: var(--text-secondary);
     font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     font-weight: 300;
+}
+
+footer {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
 }
 
 /* Modal/Lightbox for enlarged view */
@@ -671,7 +740,7 @@ background-color: #FFF1CC;
     color: var(--text-secondary);
     font-size: 1.1rem;
 }
-
+        
 @keyframes float {
     0%, 100% {
         transform: translateY(0) rotateX(0deg) rotateY(0deg);
