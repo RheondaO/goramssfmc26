@@ -918,44 +918,5 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
         stepper.onStepChange(initialStep); 
     });   
     </script>
-
-    <script>
-        // Parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const containers = document.querySelectorAll('.image-container');
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            
-            containers.forEach((container, index) => {
-                const factor = (index + 1) * 0.3;
-                container.style.transform = `
-                    translateX(${x * factor}px) 
-                    translateY(${y * factor}px)
-                    rotateX(${y * 0.1}deg)
-                    rotateY(${x * 0.1}deg)
-                `;
-            });
-        });
-
-        // Smooth scroll reveal
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.wireframe-section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-    
 </body>
 </html>
