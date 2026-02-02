@@ -11,7 +11,7 @@ document.addEventListener('click', function (e) {
 
     // Close modal via close button or backdrop click
     if (
-        e.target.classList.contains('close-modal') ||
+        e.target.classList.contains('close-dashboard') ||
         e.target.id === 'iframeModal'
     ) {
         const modal = document.getElementById('iframeModal');
