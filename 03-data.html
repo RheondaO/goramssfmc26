@@ -3,28 +3,26 @@
 <p>The foundation of stability. This page showcases the database design and relational schemas required to house student financial profiles. To maintain strict data privacy, we utilize a custom Python engine to generate high-fidelity "Dummy Data" for testing and validation.</p>
 </section>
 
-
 <div class="data-page-wrapper">
-
     <aside class="side-nav-code">
         <h4>DBML DEFINITION</h4>
-        // ENTITIES<br>
-        Table core_student_data {<br>
+        <br>
+        Table core_student_data<br>
         &nbsp;&nbsp;id_hash [pk]<br>
         &nbsp;&nbsp;res_status<br>
-        &nbsp;&nbsp;credits<br>
-        }<br><br>
-        Table core_advisor_data {<br>
+        &nbsp;&nbsp;credits<br><br><br>
+        
+        Table core_advisor_data <br>
         &nbsp;&nbsp;staff_id [pk]<br>
-        &nbsp;&nbsp;ferpa_cert bool<br>
-        }<br><br>
-        // LOGIC BRIDGES<br>
+        &nbsp;&nbsp;ferpa_cert bool<br><br><br>
+        
+        S<br>
         Ref: student.id > txn.id<br>
         Ref: advisor.id > case.id<br>
         Ref: case.id > logs.id<br>
         Ref: case.id > touch.id<br><br>
-        // AUDIT<br>
-        Table log_audit_trail {<br>
+        <br>
+        Table log_audit_trail <br>
         &nbsp;&nbsp;audit_id [pk]<br>
         &nbsp;&nbsp;mod_by [fk]<br>
     </aside>
