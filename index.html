@@ -476,6 +476,7 @@ background-color: #FFF1CC;
     height: 100%;
     transform: scale(0.5);
     transform-origin: top center;
+    overflow: hidden;
 }
 
 .iframe-container iframe {
@@ -485,7 +486,15 @@ background-color: #FFF1CC;
     height: 200%;
     border: none;
     overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: non
 }
+
+.iframe-container iframe::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/*------------*/
 
 button#openFullscreen {
     width: 50%;
