@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sxans-serif;
             background: linear-gradient(135deg, #000000 50%, #FFB300 100%);
             min-height: 100vh;
             padding: 2rem;
@@ -371,8 +371,7 @@
     background-color: #ffffff;
     border: 1px solid #e1e4e8;
     color: #24292e; /* Dark gray text for readability */
-    font-size: 0.88rem;
-    table-layout: fixed;
+    font-size: 0.85rem;
 }
 
 .governance-matrix thead {background-color: #FFB300;
@@ -392,10 +391,10 @@
     vertical-align: top;
 }
 
-.governance-matrix th:nth-child(1), .governance-matrix td:nth-child(1) { width: 15%; }
-.governance-matrix th:nth-child(2), .governance-matrix td:nth-child(2) { width: 20%; }
-.governance-matrix th:nth-child(3), .governance-matrix td:nth-child(3) { width: 20%; }
-.governance-matrix th:nth-child(4), .governance-matrix td:nth-child(4) { width: 45%; }
+.governance-matrix td:nth-child(1) { width: 12%; font-weight: bold; background: #f9f9f9; }
+.governance-matrix td:nth-child(2) { width: 23%; }
+.governance-matrix td:nth-child(3) { width: 20%; font-weight: 600; }
+.governance-matrix td:nth-child(4) { width: 45%; color: #555; }
 
 /* Rowspan Column Styling */
 .governance-matrix td[rowspan]{
@@ -441,15 +440,6 @@ code {
     border: 1px solid #e1e4e8;
 }
 
-
-code {
-    font-family: monospace; 
-    background: #f0f0f0; 
-    padding: 2px 4px; 
-    border-radius: 3px; 
-    color: #d73a49; }
-}
-
 /* Container for the checkbox and text to keep them aligned */
 .check-item {
     display: flex;
@@ -461,6 +451,8 @@ code {
 }
 
 .check-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
     appearance: none;
     -webkit-appearance: none;
     accent-color: #FFB300; 
@@ -473,26 +465,9 @@ code {
     flex-shrink: 0; /* Prevents checkbox from squishing */
 }
                           
-/* Hide the default checkbox */
-.check-item input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #FFB300; /* VCU Gold Border */
-    border-radius: 3px;
-    background-color: #fff;
-    cursor: pointer;
-    position: relative;
-    flex-shrink: 0; /* Prevents checkbox from squishing */
-    margin-top: 2px; 
-}
-
 /* The "Check" mark (only shows when checked) */
 .check-item input[type="checkbox"]:checked {
-    background-color: #FFB300;
-}
-
+    background-color: #FFB300;}
 .check-item input[type="checkbox"]:checked::after {
     content: '✔';
     position: absolute;
