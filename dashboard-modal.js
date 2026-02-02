@@ -1,18 +1,24 @@
-  const modal = document.getElementById('iframeModal');
-  const openBtn = document.querySelector('.open-modal');
-  const closeBtn = document.querySelector('.close-modal');
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('iframeModal');
+    const openBtn = document.getElementById('openFullscreen');
+    const closeBtn = document.getElementById('closeModal');
 
-  openBtn.onclick = () => {
-    document.documentElement.classList.add('modal-open');
-    document.body.classList.add('modal-open');
-    modal.showModal();
-  };
+    openBtn.addEventListener('click', () => {
+      modal.showModal();
+      document.documentElement.classList.add('modal-open');
+      document.body.classList.add('modal-open');
+    });
 
-  closeBtn.onclick = () => {
-    modal.close();
-  };
+    closeBtn.addEventListener('click', () => {
+      modal.close();
+    });
 
-  modal.addEventListener('close', () => {
-    document.documentElement.classList.remove('modal-open');
-    document.body.classList.remove('modal-open');
+    modal.addEventListener('close', () => {
+      document.documentElement.classList.remove('modal-open');
+      document.body.classList.remove('modal-open');
+    });
   });
+
+
+
+
