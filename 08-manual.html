@@ -10,23 +10,22 @@
     <table class="governance-matrix">
         <thead>
             <tr>
-                <th>Category</th>
-                <th>Checklist (Operational Task)</th>
-                <th>Protocol (Institutional Standard)</th>
+                <th>Item</th>
+                <th>Operational Task</th>
+                <th>Insitutional Protocol</th>
+                <th>Short Description</th>
             </tr>
         </thead>
-        <tbody>
+<!------------------------------------------>
+        <tbody>   
             <tr>
-
                 <td>Data Integrity</td>
-                <label class="check-item">
-                    <input type="checkbox">
-                    <span>
-                    <strong>1.1 Validate Data Connections</strong>
+                <td><label class="check-item"><input type="checkbox"><span>
+                    
+                    <strong>1.1 Validate Data Connections</strong></span>
                     Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's Board of Visitors' approved rates.
-                    </span>
-                </label>
-                </td>
+                    
+                </label></td>
                 <td>
                     <strong>Annual Parameter Calibration</strong>
                     <span class="protocol-text">Execute UPDATE on <code>ref_tuition_rates</code> using Board ratified data to ensure billing accuracy.</span>
