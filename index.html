@@ -590,7 +590,6 @@ background-color: #FFF1CC;
     text-align: justify;
     font-style: italic;
     font-weight: 300;
-
 }
 
 .side-by-side {
@@ -1175,14 +1174,7 @@ footer {
                 <div class="content-area">
                     <h2 id="step-title">Overview: Work Sample Showcase</h2>
                     <p id="step-description">Welcome to the SFMC Systems Development Lifecycle (SDLC) Showcase.</p>
-                    <!-- <div class="step-indicator" id="step-indicator">Step 0 of 8</div> -->
                 </div>
-<!-------
-                <div class="controls">
-                    <button class="btn-prev" id="prevBtn" disabled>← Previous</button>
-                    <button class="btn-next" id="nextBtn">Next →</button>
-                </div>
--------->
             </div>
         </div>
     
@@ -1245,9 +1237,6 @@ const stepper = new ProgressiveStepper('interactive-stepper', {
                 nextBtn.textContent = 'Next →';
                 nextBtn.classList.remove('finish-style');
             }
-        
-        /* nextBtn.disabled = stepIndex === stepLabels.length - 1;
-        nextBtn.textContent = stepIndex === stepLabels.length - 1 ? 'Finish' : 'Next →'; */
     }
 });
         
