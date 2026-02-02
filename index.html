@@ -372,9 +372,10 @@
     border: 1px solid #e1e4e8;
     color: #24292e; /* Dark gray text for readability */
     font-size: 0.88rem;
-    table-layout: auto;
+    table-layout: fixed;
 }
 
+.governance-matrix thead {background-color: #FFB300;
 .governance-matrix th {
     padding: 12px;
     text-align: left;
@@ -385,12 +386,27 @@
     border-bottom: 2px solid #333;
 }
 
-/* Cell Borders and Spacing */
 .governance-matrix td {
     padding: 12px;
-    border-bottom: 1px solid #e1e4e8;
+    border: 1px solid #e1e4e8;
     vertical-align: top;
+}
+
+.governance-matrix th:nth-child(1), .governance-matrix td:nth-child(1) { width: 15%; }
+.governance-matrix th:nth-child(2), .governance-matrix td:nth-child(2) { width: 20%; }
+.governance-matrix th:nth-child(3), .governance-matrix td:nth-child(3) { width: 20%; }
+.governance-matrix th:nth-child(4), .governance-matrix td:nth-child(4) { width: 45%; }
+
+/* Rowspan Column Styling */
+.governance-matrix td[rowspan]{
+    
+    font-weight: bold;
+    padding: 12px;
+    vertical-align: middle;
     word-wrap: break-word;
+    color: #333;
+    border: 1px solid #e1e4e8;
+    background-color: #fcfcfc;
     /*line-height: 1.6; */
 }
 
@@ -401,27 +417,12 @@
     background-color: #f8f9fa; /* Subtle gray contrast for the first column */
     width: 10%;
 }
-
-/* Checklist */
-.governance-matrix td:nth-child(2) { width: 20%; }
-.governance-matrix td:nth-child(3) { width: 20%;
-                                   font-weight: 600;
-                                   color: #333;}
-.governance-matrix td:nth-child(4) { width: 50%; 
-                                   color: #444;
-                                   line-height: 1.5;}
         
 .governance-matrix strong {
     display: block;
     color: #000;
     margin-bottom: 5px;
     font-size: 0.95rem;
-}
-
-/* Description/Protocol text styling */
-.protocol-text {
-    font-style: italic;
-    color: #586069; /* Slate gray for secondary information */
 }
 
 /* Row Hover for interactivity */
@@ -440,11 +441,13 @@ code {
     border: 1px solid #e1e4e8;
 }
 
-/* Optional: If you want the syntax to stand out more in the Gold headers */
-th code {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0.2);
-    color: #000;
+
+code {
+    font-family: monospace; 
+    background: #f0f0f0; 
+    padding: 2px 4px; 
+    border-radius: 3px; 
+    color: #d73a49; }
 }
 
 /* Container for the checkbox and text to keep them aligned */
@@ -457,6 +460,19 @@ th code {
     font-size: 0.82rem;
 }
 
+.check-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    accent-color: #FFB300; 
+    margin-top: 2px; 
+    border: 2px solid #FFB300; /* VCU Gold Border */
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0; /* Prevents checkbox from squishing */
+}
+                          
 /* Hide the default checkbox */
 .check-item input[type="checkbox"] {
     appearance: none;
