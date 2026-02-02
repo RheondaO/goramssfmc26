@@ -14,87 +14,68 @@
         <thead>
             <tr>
                 <th>Category</th>
-                <th>Operational Task</th>
+                <th>Operational Tasks</th>
                 <th>Insitutional Protocol</th>
                 <th>Short Description</th>
             </tr>
         </thead>
 <!------------------------------------------>
-        <tbody>
-            <tr><td>Technical Review & Configuration</td>
-                <td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span></label></td><td>Annual Parameter Calibration</td><td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute <code>UPDATE</code> on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
-                <td><label class="check-item"><input type="checkbox"><span><strong>1.2 API & Token Audit</strong></span></label></td><td></td>.<td>Check the longevity of the API tokens connecting the Student Calculator to the Analysis Dashboard. Perform an audit to ensure output matches manual billing.</td>
-                </td><label class="check-item"><input type="checkbox"><span><strong>1.2 Security Audit</strong></span></label></td><td></td>.<td>Ensure the <code>student_id_hashed</code> function in the <code>txn_student_calculations</code>table is still meeting current <b>VCU Information Security PII-masking standards.</b></td>
-            </tr>
-            
-            <tr><td>System Logic</td><td>
-                    <label class="check-item"><input type="checkbox"><span><strong>1.3 API Token Life</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>1.4 Zero-Sum Test</strong></span></label>
-                </td><td>Logic Validation</td>
-                <td>Check the longevity of the API tokens connecting the Student Calculator to the Analysis Dashboard. Perform a "Zero-Sum Audit" to ensure output matches manual billing and technical specs.</td>
+        <tbo<tbody>
+            <tr>
+                <td rowspan="4">1. Technical Review & Configuration</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.1 Connection Audit</strong></span></label></td>
+                <td rowspan="4"><strong>Phase I: Logic Integrity & Rate Maintenance</strong></td>
+                <td>Verify that the <code>ref_tuition_rates</code> table successfully ingests data from the university’s master tuition flat files.</td>
             </tr>
             <tr>
-                <td>Security</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.1 PII Masking</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.2 Hash Algorithm</strong></span></label>
-                </td>
-                <td>PII Masking Verification</td>
-                <td>Ensure the <code>student_id_hashed</code> function in the <code>txn_student_calculations</code> table meets VCU standards. Bi-annual audit of SHA-256 algorithms per <code>VCU InfoSec Standard 4.02</code>.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.2 Source Mapping</strong></span></label></td>
+                <td>Confirm every field in <code>txn_student_calculations</code> accurately maps to the SIS schema to prevent data drift.</td>
             </tr>
             <tr>
-                <td>Maintenance</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.3 Rate Refresh</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.4 Fee Calculation</strong></span></label>
-                </td>
-                <td>Access Control Review</td>
-                <td>Update the <code>cost_per_credit</code> and <code>mandatory_fees_total</code> in SQL reference tables every July. Audit permissions for Case Management Hub using the Principle of Least Privilege.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.3 API Token Life</strong></span></label></td>
+                <td>Rotate and validate security tokens to ensure uninterrupted data flow between the Calculator UI and the backend.</td>
             </tr>
             <tr>
-                <td>Verification</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.5 Test Case Run</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>2.6 Logic Sync</strong></span></label>
-                </td>
-                <td>Telemetry Validation</td>
-                <td>Run a "Test Case" (e.g., In-State, 15 credits) to ensure Calculator UI matches billing logic. Inspect timestamps to ensure Intervention Velocity excludes non-business hours for clean reporting.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.4 Zero-Sum Test</strong></span></label></td>
+                <td>Run a manual billing worksheet against the <code>calculated_gap</code> output to ensure zero variance in financial logic.</td>
+            </tr>
+
+            <tr>
+                <td rowspan="4">2. Maintenance & Updates</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>2.1 Rate Refresh</strong></span></label></td>
+                <td rowspan="4"><strong>Phase II: Data Security & PII Governance</strong></td>
+                <td>Perform the annual July <code>UPDATE</code> on <code>ref_tuition_rates</code> using Board of Visitors' approved figures.</td>
             </tr>
             <tr>
-                <td>Compliance</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.1 SLA Monitoring</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.2 Metric Audit</strong></span></label>
-                </td>
-                <td>Executive Dashboard Approval</td>
-                <td>Review Case Management Hub to ensure the KPI is capturing timestamps accurately. Mandate "Logic Recertification" from the Director for all visual data layers.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>2.2 PII Masking</strong></span></label></td>
+                <td>Review the <code>student_id_hashed</code> column to ensure no raw PII is being written to persistent storage logs.</td>
             </tr>
             <tr>
-                <td>Governance</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.3 Formal Sign-off</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.4 Logic Approval</strong></span></label>
-                </td>
-                <td>Immutable Log Inspection</td>
-                <td>Before deploying changes to the Executive Dashboard, obtain formal "Logic Approval" from the SFMC Director. Audit <code>log_audit_trail</code> to flag modifications without a Change Request.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>2.3 Hash Algorithm</strong></span></label></td>
+                <td>Validate that SHA-256 salts for hashing remain secure and compliant with <code>VCU InfoSec Standard 4.02</code>.</td>
             </tr>
             <tr>
-                <td>Audit</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.5 Log Export</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.6 Modification Review</strong></span></label>
-                </td>
-                <td>Standard Operating Continuity</td>
-                <td>Export the <code>log_audit_trail</code> monthly to verify authorized modifications to core rates. Consolidate all log exports into the annual Institutional Effectiveness review.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>2.4 Access Audit</strong></span></label></td>
+                <td>Conduct an RBAC audit to remove outdated user permissions from the SFMC management and intervention hubs.</td>
+            </tr>
+
+            <tr>
+                <td rowspan="4">3. Reporting & Governance</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>3.1 SLA Monitoring</strong></span></label></td>
+                <td rowspan="4"><strong>Phase III: KPI Performance & Phase IV: Audit Trail</strong></td>
+                <td>Audit <code>work_case_management</code> timestamps to verify Intervention Velocity metrics exclude non-business hours.</td>
             </tr>
             <tr>
-                <td>Continuity</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.7 SOP Update</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>3.8 Knowledge Transfer</strong></span></label>
-                </td>
-                <td>Institutional Knowledge Transfer</td>
-                <td>Ensure any changes to the UI are reflected in the Admin SOP in the shared repository. Mandate a "Shadow Period" for new hires using the SOP as the primary training document.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>3.2 Executive Sign-off</strong></span></label></td>
+                <td>Obtain formal "Logic Recertification" from the SFMC Director before pushing changes to the Executive Dashboard.</td>
+            </tr>
+            <tr>
+                <td><label class="check-item"><input type="checkbox"><span><strong>3.3 Log Export</strong></span></label></td>
+                <td>Export the <code>log_audit_trail</code> to a secure archive and review for any unauthorized modifications to reference data.</td>
+            </tr>
+            <tr>
+                <td><label class="check-item"><input type="checkbox"><span><strong>3.4 SOP Sync</strong></span></label></td>
+                <td>Update the **Admin Standard Operating Procedure** manual whenever the Calculator UI or database schema is modified.</td>
             </tr>
         </tbody>
     </table>
