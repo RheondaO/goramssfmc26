@@ -382,19 +382,40 @@
     color: #000000;
     text-transform: uppercase;
     font-size: 0.85rem;
-    border-bottom: 2px solid #333;
 }
 
 .governance-matrix td {
     padding: 12px;
     border: 1px solid #e1e4e8;
     vertical-align: top;
+    word-wrap: break-word;
 }
 
-.governance-matrix td:nth-child(1) { width: 12%; font-weight: bold; background: #f9f9f9; }
-.governance-matrix td:nth-child(2) { width: 23%; }
-.governance-matrix td:nth-child(3) { width: 20%; font-weight: 600; }
-.governance-matrix td:nth-child(4) { width: 45%; color: #555; }
+/* Item Category */
+.governance-matrix td:nth-child(1) { 
+    width: 10%; 
+    font-weight: bold; 
+    background: #fcfcfc; 
+}
+
+/* Operational Task (Checkboxes) */
+.governance-matrix td:nth-child(2) { 
+    width: 20%; 
+}
+
+/* Institutional Protocol (The Lingo) */
+.governance-matrix td:nth-child(3) { 
+    width: 20%; 
+    font-weight: 600; 
+    color: #333;
+}
+
+/* Short Description (Combined Text) */
+.governance-matrix td:nth-child(4) { 
+    width: 50%; 
+    color: #444; 
+    line-height: 1.5;
+}
 
 /* Rowspan Column Styling */
 .governance-matrix td[rowspan]{
@@ -506,6 +527,8 @@ code {
     margin-left: 5rem;
     margin-right: 5rem;
 }
+
+                          
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
