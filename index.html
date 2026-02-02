@@ -897,14 +897,15 @@ footer {
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* -------------V 00-OVERVIEW CSS V--------------------------*/ /* -------------V 00-OVERVIEW CSS V-------------------------*/ /* -----------------V 00-OVERVIEW CSS V-----------------------*/  
 .overview {
-    position: static;
+    position: relative;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     height: 100%;
     resize: none;
-    overflow: hidden;
+    overflow: scroll;
+    scrollbar-wideth: none;
 }
         
 .overview p {
@@ -927,10 +928,11 @@ footer {
 }       
 
 .last p {
-    padding: 1rem;
+    padding-top: 1rem;
     bottom: 0;
     font-style: italic;
     margin-top: auto;
+    
 }
 
         
