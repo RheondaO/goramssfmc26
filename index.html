@@ -746,6 +746,85 @@ html.modal-open,
 body.modal-open {
   overflow: hidden;
 }
+
+/* -----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* ----------------------------------------------------------*/ /* -----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* ---------------V 03-DATA SCHEMA CSS V--------------------*/ /* -------------------V 03-DATA SCHEMA CSS V------------------*/ /* ---------------V 03-DATA SCHEMA CSS V=--------------------*/   
+
+/* Container and Layout */
+.data-page-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f6f8fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    color: #24292e;
+}
+
+/* Side Navigation (Left) - DBML/DQL Code */
+.side-nav-code {
+    flex: 0 0 250px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    border-radius: 8px;
+    height: calc(100vh - 40px);
+    position: sticky;
+    top: 20px;
+    overflow-y: auto;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.side-nav-code h4 { color: #FFB300; margin-bottom: 15px; border-bottom: 1px solid #333; }
+
+/* Main Content (Middle) - Image and Schema */
+.main-schema-view {
+    flex: 1;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    text-align: center;
+}
+
+.main-schema-view img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Relationship Panel (Right) - Cardinality Map */
+.cardinality-panel {
+    flex: 0 0 300px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    height: fit-content;
+}
+
+/* Tables in the Right Panel */
+.map-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.map-table th { background: #f6f8fa; text-align: left; padding: 8px; border-bottom: 2px solid #FFB300; }
+.map-table td { padding: 10px 8px; border-bottom: 1px solid #eee; }
+
+.badge {
+    font-weight: bold;
+    color: #0366d6;
+    background: #f1f8ff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+        
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ---------------V 02-DESIGN + WIREFRAME CSS V--------------*/ /* -----------V 02-DESIGN + WIREFRAME CSS V------------------*/ /* ---------------V 02-DESIGN + WIREFRAME CSS V=-------------*/        
