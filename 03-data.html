@@ -3,78 +3,17 @@
 <p>The foundation of stability. This page showcases the database design and relational schemas required to house student financial profiles. To maintain strict data privacy, we utilize a custom Python engine to generate high-fidelity "Dummy Data" for testing and validation.</p>
 </section>
 
-<div class="data-page-wrapper">
-    <aside class="side-nav-code">
-        <h4>DBML DEFINITION</h4>
-        <br>
-        Table core_student_data<br>
-        &nbsp;&nbsp;id_hash [pk]<br>
-        &nbsp;&nbsp;res_status<br>
-        &nbsp;&nbsp;credits<br><br><br>
-        
-        Table core_advisor_data <br>
-        &nbsp;&nbsp;staff_id [pk]<br>
-        &nbsp;&nbsp;ferpa_cert bool<br><br><br>
-        
-        S<br>
-        Ref: student.id > txn.id<br>
-        Ref: advisor.id > case.id<br>
-        Ref: case.id > logs.id<br>
-        Ref: case.id > touch.id<br><br>
-        <br>
-        Table log_audit_trail <br>
-        &nbsp;&nbsp;audit_id [pk]<br>
-        &nbsp;&nbsp;mod_by [fk]<br>
-    </aside>
-
-    <main class="main-schema-view">
-        <h2>SFMC Relational Schema</h2>
-        <p>Comprehensive Entity Relationship Diagram (ERD) for Student Success and Financial Governance.</p>
-        
-    </main>
-
-    <section class="cardinality-panel">
-        <h4>Relationship & Cardinality</h4>
-        <p style="font-size: 0.8rem; color: #666;">Mapping how data objects interact across the institutional ecosystem.</p>
-        
-        <table class="map-table">
-            <thead>
-                <tr>
-                    <th>Entity Pair</th>
-                    <th>Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Student → Calc</td>
-                    <td><span class="badge">1:M</span></td>
-                </tr>
-                <tr>
-                    <td>Advisor → Case</td>
-                    <td><span class="badge">1:M</span></td>
-                </tr>
-                <tr>
-                    <td>Case → Logs</td>
-                    <td><span class="badge">1:M</span></td>
-                </tr>
-                <tr>
-                    <td>Case → Touchpoints</td>
-                    <td><span class="badge">1:M</span></td>
-                </tr>
-                <tr>
-                    <td>Staff → Audit</td>
-                    <td><span class="badge">1:M</span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div style="margin-top: 20px; font-size: 0.8rem; background: #fff5b1; padding: 10px; border-radius: 4px;">
-            <strong>Integrity Rule:</strong> No outreach (Logs) can exist without an associated Case ID and a FERPA-certified Staff ID.
+<main class="showcase-container">
+    <section class="wireframe-section" 
+        data-image="images/datamodeldiagram.png" 
+        data-title="Data Model Diagram" 
+        data-desc="Data Model Diagram for SFMC Database Design.">
+        <div class="image-container">
+            <img src="images/datamodeldiagram.png" alt="System Data Model" class="wireframe-image">
         </div>
     </section>
 
   <p><i>Compliance & Privacy Disclaimer: All data displayed in this showcase is synthetic and purposefully anonymized to demonstrate system logic and architectural integrity while adhering to FERPA (Family Educational Rights and Privacy Act) standards and VCU Information Security best practices.</i></p>
 
-
-</div>
+</main>
 
