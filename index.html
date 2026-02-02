@@ -467,19 +467,24 @@ background-color: #FFF1CC;
   display: block; /* removes inline gap */
 }
 
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+
 .iframe-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5)
+    transform-origin: top center;
 }
 
 .iframe-container iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+    position: relative;
+    inset: 0;
+    width: 100%;
+    height: 200%;
+    border: none;
+    overflow: scroll;
 }
 
 
