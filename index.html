@@ -426,6 +426,24 @@
 /* Row Hover for interactivity */
 .governance-matrix tr:hover {
     background-color: #fffdf5; /* Very subtle gold tint on hover */
+
+/* Styling for technical syntax/table names */
+code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    background-color: rgba(27, 31, 35, 0.05); /* Very subtle gray background */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #d73a49; /* A subtle "code red" or "slate" often used in documentation */
+    border: 1px solid #e1e4e8;
+}
+
+/* Optional: If you want the syntax to stand out more in the Gold headers */
+th code {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #000;
+}
 }
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
