@@ -364,23 +364,22 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Professional Table Styling */
 .governance-matrix {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
     border: 1px solid #e1e4e8;
     color: #24292e; /* Dark gray text for readability */
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    table-layout: auto;
 }
 
-/* Header - VCU Gold Theme */
 .governance-matrix thead {
     background-color: #FFB300; 
 }
 
 .governance-matrix th {
-    padding: 12px 15px;
+    padding: 12px;
     text-align: left;
     font-weight: 700;
     color: #000000;
@@ -391,25 +390,34 @@
 
 /* Cell Borders and Spacing */
 .governance-matrix td {
-    padding: 15px;
+    padding: 12px;
     border-bottom: 1px solid #e1e4e8;
     vertical-align: top;
-    line-height: 1.6;
+    word-wrap: break-word;
+    /*line-height: 1.6; */
 }
 
-/* Category Column Styling */
+/* Item Column Styling */
 .governance-matrix td:nth-child(1) {
     font-weight: bold;
     color: #333;
     background-color: #f8f9fa; /* Subtle gray contrast for the first column */
-    width: 15%;
+    width: 10%;
 }
 
-/* Checklist and Protocol Column Spacing */
-.governance-matrix td:nth-child(2) { width: 40%; }
-.governance-matrix td:nth-child(3) { width: 45%; }
+/* Checklist */
+.governance-matrix td:nth-child(2) { width: 20%; }
+.governance-matrix td:nth-child(3) { width: 20%;
+                                   font-weight: 600;
+                                   color: #333;}
+.governance-matrix td:nth-child(4) { width: 50%; 
+                                   color: #444;
+                                   line-height: 1.5;}
 
-/* Styling Titles within Cells */
+
+
+
+        
 .governance-matrix strong {
     display: block;
     color: #000;
@@ -450,9 +458,10 @@ th code {
 .check-item {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 0.82rem;
 }
 
 /* Hide the default checkbox */
