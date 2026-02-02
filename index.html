@@ -426,6 +426,7 @@
 /* Row Hover for interactivity */
 .governance-matrix tr:hover {
     background-color: #fffdf5; /* Very subtle gold tint on hover */
+}
 
 /* Styling for technical syntax/table names */
 code {
@@ -444,6 +445,55 @@ th code {
     border-color: rgba(0, 0, 0, 0.2);
     color: #000;
 }
+
+/* Container for the checkbox and text to keep them aligned */
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+/* Hide the default checkbox */
+.check-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFB300; /* VCU Gold Border */
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0; /* Prevents checkbox from squishing */
+    margin-top: 2px; 
+}
+
+/* The "Check" mark (only shows when checked) */
+.check-item input[type="checkbox"]:checked {
+    background-color: #FFB300;
+}
+
+.check-item input[type="checkbox"]:checked::after {
+    content: '✔';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    font-size: 14px;
+    color: #000; /* Black check on Gold background */
+}
+
+/* Subtle hover effect */
+.check-item:hover input[type="checkbox"] {
+    border-color: #333;
+    background-color: #fffdf5;
+}
+
+/* Optional: Strikethrough text when checked */
+.check-item input[type="checkbox"]:checked + span {
+    color: #888;
+    text-decoration: line-through;
 }
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
