@@ -18,18 +18,11 @@
         </thead>
 <!------------------------------------------>
         <tbody>   
-            <tr>
-                <td>Data Integrity</td>
-                <td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates.
-                    
-                </label></td>
-                <td>
-                    <strong>Annual Parameter Calibration</strong>
-                    <span class="protocol-text">Execute UPDATE on <code>ref_tuition_rates</code> using Board ratified data to ensure billing accuracy.</span>
-                </td>
+            <tr><td>Data Integrity</td><td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span></td>
+            <td>Annual Parameter Calibration</td><td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute UPDATE on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
             </tr>
-            <tr>
-                <td>System Logic</td>
+            
+            <tr><td>System Logic</td>
                 <td>
                     <strong>1.2 API & Token Audit</strong>
                     Check the longevity of the API tokens connecting the Student Calculator to the Analysis Dashboard.
