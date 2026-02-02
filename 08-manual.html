@@ -22,11 +22,9 @@
 <!------------------------------------------>
         <tbody>
             <tr><td>Technical Review & Configuration</td>
-            <td><label class="check-item"><input type="checkbox"> <span><strong>1.1 Validate Data Connections</strong></span></label>
-                <label class="check-item"><input type="checkbox"> <span><strong>1.2 API & Token Audit</strong></span></label>
-                <label class="check-item"><input type="checkbox"> <span><strong>1.2 Security Audita</strong></span></label>
-            </td>
-                <td>Annual Parameter Calibration</td><td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute <code>UPDATE</code> on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span></label></td><td>Annual Parameter Calibration</td><td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute <code>UPDATE</code> on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
+                <td><label class="check-item"><input type="checkbox"> <span><strong>1.2 API & Token Audit</strong></span></label></td><td></td><td>Check longevity of connections between Calculator and Dashboard. Perform an audit to ensure output matches manual billing.</td>
+                </td><label class="check-item"><input type="checkbox"> <span><strong>1.2 Security Audit</strong></span></label></td><td></td><td>Ensure <code>student_id_hashed</code> meets VCU masking standards. Bi-annual audit of SHA-256 hashing algorithms per <b>VCU InfoSec Standard 4.02</b>.</td>
             </tr>
             
             <tr><td>System Logic</td><td>
