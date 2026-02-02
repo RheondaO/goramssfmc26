@@ -13,34 +13,24 @@
     <table class="governance-matrix">
         <thead>
             <tr>
-                <th>Item</th>
+                <th>Category</th>
                 <th>Operational Task</th>
                 <th>Insitutional Protocol</th>
                 <th>Short Description</th>
             </tr>
         </thead>
 <!------------------------------------------>
-        <tbody>   
-            <tr><td>Data Integrity</td><td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span></td>
-            <td>Annual Parameter Calibration</td><td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute UPDATE on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
-            </tr>
+        <tbody>
+            <tr><td>Technical Review & Configuration</td>
+                <td><label class="check-item"><input type="checkbox"><span><strong>1.1 Validate Data Connections</strong></span></label><td>Annual Parameter Calibration</td>
+                    <label class="check-item"><input type="checkbox"><span><strong>1.2 API & Token Audit</strong></span></label>
+                    <label class="check-item"><input type="checkbox"><span><strong>1.2 Security Audita</strong></span></label></td>
+        <td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute <code>UPDATE</code> on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td></tr>
             
-            <tr>
-                <td>Data Integrity</td>
-                <td>
-                    <label class="check-item"><input type="checkbox"><span><strong>1.1 Connection Audit</strong></span></label>
-                    <label class="check-item"><input type="checkbox"><span><strong>1.2 Source Mapping</strong></span></label>
-                </td>
-                <td>Annual Parameter Calibration</td>
-                <td>Confirm the <code>ref_tuition_rates</code> table is linked to the current academic year's approved rates. Execute <code>UPDATE</code> on <code>ref_tuition_rates</code> using ratified data to ensure billing accuracy.</td>
-            </tr>
-            <tr>
-                <td>System Logic</td>
-                <td>
+            <tr><td>System Logic</td><td>
                     <label class="check-item"><input type="checkbox"><span><strong>1.3 API Token Life</strong></span></label>
                     <label class="check-item"><input type="checkbox"><span><strong>1.4 Zero-Sum Test</strong></span></label>
-                </td>
-                <td>Logic Validation</td>
+                </td><td>Logic Validation</td>
                 <td>Check the longevity of the API tokens connecting the Student Calculator to the Analysis Dashboard. Perform a "Zero-Sum Audit" to ensure output matches manual billing and technical specs.</td>
             </tr>
             <tr>
