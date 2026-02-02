@@ -1,4 +1,43 @@
 <section class="step-header">
 <h2>Conclusion: Documentation & Thank You!</h2>
-<p>Ensuring long-term sustainability. The final phase provides the Technical User Manual and maintenance documentation. This "handoff" ensures that the application remains accessible, documented, and ready for future software configurations or policy changes.</p>
+<p>Ensuring long-term sustainability. The final phase ensures that custom applications remains accessible, documented, and ready for future software configurations or policy changes.</p>
 </section>
+
+<p><b>The goal:</b> Institutional Continuity. By standardizing approvals and hand-off guides, we ensure that SFMC tools remain accurate, secure, and operational regardless of staff turnover.</p>
+<p>Documentation serves as the primary mechanism for <b>Institutional Knowledge Transfer</b>, ensuring that VCU’s financial data architecture remains audit-ready, FERPA-compliant, and operationally stable.</p>
+
+<div class="matrix-container">
+    <table class="governance-matrix">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Checklist (Operational Task)</th>
+                <th>Protocol (Institutional Standard)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data Integrity</td>
+                <td>
+                    <strong>1.1 Validate Data Connections</strong>
+                    Confirm the ref_tuition_rates table is linked to the current academic year's Board of Visitors' approved rates.
+                </td>
+                <td>
+                    <strong>Annual Parameter Calibration</strong>
+                    <span class="protocol-text">Execute UPDATE on ref_tuition_rates using Board ratified data to ensure billing accuracy.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>System Logic</td>
+                <td>
+                    <strong>1.2 API & Token Audit</strong>
+                    Check the longevity of the API tokens connecting the Student Calculator to the Analysis Dashboard.
+                </td>
+                <td>
+                    <strong>Logic Validation (Regression Testing)</strong>
+                    <span class="protocol-text">Perform a "Zero-Sum Audit" to ensure output matches manual billing and technical specs.</span>
+                </td>
+            </tr>
+            </tbody>
+    </table>
+</div>
