@@ -361,6 +361,8 @@
     margin: 0 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: auto;
+    max-height: 80vh;
+    position: relative;
 }
 
 .governance-matrix {
@@ -384,6 +386,9 @@
 
 .governance-matrix thead th {
     position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #FFB300;
 }
 
 .governance-matrix td {
