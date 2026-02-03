@@ -677,14 +677,24 @@ body.modal-open {
 }*/
         
 .diagram-container {
-  display: flex;
-  align-items: flex-start; /* top-align image and text */
-  gap: 1.5rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .diagram-image {
-   flex: 0 0 40%;/* image takes 40% of container */
-  max-width: 40%;
+    position: relative;
+    width: calc(33.333% - 2rem);
+    min-width: 300px;
+    max-width: 500px;
+    perspective: 1500px;
+    cursor: pointer;
+    transition: all 0.3s ease;;
 }
 
 .diagram-image img {
