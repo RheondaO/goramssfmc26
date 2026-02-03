@@ -526,118 +526,7 @@ code {
     /* line-height: 1.4; */
     margin-left: 5rem;
     margin-right: 5rem;
-}
-
-                          
-
-/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* ----------------V 01-DISCOVERY CSS V---------------------*/ /* -----------------------V 01-DISCOVERY CSS V----------------*/ /* --------------------V 01-DISCOVERY CSS V------------------*/
-
-.yellow-box {
-    display: grid;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    scrollbar-behavior: smooth;
-    min-width: min-content;
-    max-height: -webkit-fill-available;
-    height: 50vh;
-    /* padding: 0.25rem; */
-    flex-direction: column;
-    flex: 1; /* Allows the sections to grow and take equal space */
-    box-sizing: border-box; 
-    border: 1px solid #D19200;
-    background-color: #FFF1CC;
-    color: #000000;
-}
-
-.yellow-detail {
-    background-color: #FFF1CC;
-    padding: 1rem;
-    border-radius: 4px;
-    gap: 1rem;
-    background: #FFF1CC;
-    flex-grow: 1;
-}
-
-.yellow-detail h3 {
-    text-align: center;
-    display: block;
-    font-size: 1.1rem;
-}
-
- .yellow-detail p {
-    text-align: justify;
-    display: block;
-}  
-
-.scenario {
-background-color: #FFF1CC;
-}
-        
-.scenario h3 {
-    display: block;
-    font-size: 1.3rem;
-    padding-bottom: 10px;
-    text-align: center;
-}
-
-.scenario p {
-    display: block;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    text-align: justify;
-    font-style: italic;
-    font-weight: 300;
-}
-
-.side-by-side {
-    display: flex;
-    justify-content: centered;
-    gap: 2rem; 
-    width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-    scrollbar-behavior: smooth;
-}
-    
-.box {
-    display: flex;
-    overflow-y: visible;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    scrollbar-behavior: smooth;
-    min-width: min-content;
-    max-height: -webkit-fill-available;
-    height: 50vh;
-    padding: 0.25rem;
-    flex-direction: column;
-    flex: 1; /* Allows the sections to grow and take equal space */
-    box-sizing: border-box; 
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    color: #000000;
-}
-
-/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* -------------V 04-NOTION SPRINT LOG CSS V----------------*/ /* -------------V 04-NOTION SPRINT LOG CSS V------------------*/ /* -----------------V 04-NOTION SPRINT LOG CSS V-------------*/
-
-.iframe-wrapper {
-  position: relative; /* establishes sizing context */
-  width: 100%;
-  height: 100%; /* or a fixed / clamped height */
-  overflow: hidden;
-}
-
-.demo-section iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block; /* removes inline gap */
-}
+}        
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
@@ -746,12 +635,47 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* -----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* ----------------------------------------------------------*/ /* -----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* ---------------V 03-DATA SCHEMA CSS V--------------------*/ /* -------------------V 03-DATA SCHEMA CSS V------------------*/ /* ---------------V 03-DATA SCHEMA CSS V=--------------------*/   
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* -------------V 04-NOTION SPRINT LOG CSS V----------------*/ /* -------------V 04-NOTION SPRINT LOG CSS V------------------*/ /* -----------------V 04-NOTION SPRINT LOG CSS V-------------*/
 
+.iframe-wrapper {
+  position: relative; /* establishes sizing context */
+  width: 100%;
+  height: 100%; /* or a fixed / clamped height */
+  overflow: hidden;
+}
 
+.demo-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block; /* removes inline gap */
+}
         
+/* -----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ---------------------------------------------------------*/
+/* ----------------------------------------------------------*/ /* -----------------------------------------------------------*/ /* ---------------------------------------------------------*/
+/* ---------------V 03-DATA SCHEMA CSS V--------------------*/ /* -------------------V 03-DATA SCHEMA CSS V------------------*/ /* ---------------V 03-DATA SCHEMA CSS V=--------------------*/ 
+
+.diagram-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.diagram-image {
+    position: relative;
+    width: calc(33.333% - 2rem);
+    min-width: 300px;
+    max-width: 500px;
+    perspective: 1500px;
+    cursor: pointer;
+}
         
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
@@ -1095,7 +1019,99 @@ footer {
 
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
-/* -------------V 00-OVERVIEW CSS V--------------------------*/ /* -------------V 00-OVERVIEW CSS V-------------------------*/ /* -----------------V 00-OVERVIEW CSS V-----------------------*/  
+/* ----------------V 01-DISCOVERY CSS V---------------------*/ /* -----------------------V 01-DISCOVERY CSS V----------------*/ /* --------------------V 01-DISCOVERY CSS V------------------*/
+
+.yellow-box {
+    display: grid;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scrollbar-behavior: smooth;
+    min-width: min-content;
+    max-height: -webkit-fill-available;
+    height: 50vh;
+    /* padding: 0.25rem; */
+    flex-direction: column;
+    flex: 1; /* Allows the sections to grow and take equal space */
+    box-sizing: border-box; 
+    border: 1px solid #D19200;
+    background-color: #FFF1CC;
+    color: #000000;
+}
+
+.yellow-detail {
+    background-color: #FFF1CC;
+    padding: 1rem;
+    border-radius: 4px;
+    gap: 1rem;
+    background: #FFF1CC;
+    flex-grow: 1;
+}
+
+.yellow-detail h3 {
+    text-align: center;
+    display: block;
+    font-size: 1.1rem;
+}
+
+ .yellow-detail p {
+    text-align: justify;
+    display: block;
+}  
+
+.scenario {
+background-color: #FFF1CC;
+}
+        
+.scenario h3 {
+    display: block;
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.scenario p {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: justify;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: centered;
+    gap: 2rem; 
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scrollbar-behavior: smooth;
+}
+    
+.box {
+    display: flex;
+    overflow-y: visible;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scrollbar-behavior: smooth;
+    min-width: min-content;
+    max-height: -webkit-fill-available;
+    height: 50vh;
+    padding: 0.25rem;
+    flex-direction: column;
+    flex: 1; /* Allows the sections to grow and take equal space */
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #000000;
+}        
+
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
+/* -------------V 00-OVERVIEW CSS V--------------------------*/ /* -------------V 00-OVERVIEW CSS V-------------------------*/ /* -----------------V 00-OVERVIEW CSS V-----------------------*/ 
+        
 .overview {
     position: relative;
     flex-shrink: 0;
