@@ -677,24 +677,26 @@ body.modal-open {
 }*/
         
 .diagram-container {
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 3rem;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start; /* top-align image and text */
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .diagram-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    background: var(--bg-secondary);
-    object-fit: contain;
+   flex: 0 0 40%;/* image takes 40% of container */
+  max-width: 40%;
+}
+
+.diagram-image img {
+  width: 100%;
+  height: auto;             /* preserves aspect ratio */
+  object-fit: contain;      /* prevents cropping */
+  display: block;
 }
 
 .disclaimer p { 
-
+    flex: 1;  
     align-self: center;
     font-style: italic;
     line-height: 1.4;
