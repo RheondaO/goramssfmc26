@@ -62,11 +62,25 @@ function magnify(imgID, zoom) {
 
 const observer = new MutationObserver((mutations) => {
     const targetImage = document.getElementById("myimage");
+// Check if the image exists and hasn't been set up yet
     if (targetImage && !targetImage.dataset.zoomInitialized) {
-        /* Execute the magnify function: */
-        magnify("myimage", 5);
-        /* Specify the id of the image, and the strength of the magnifier glass: */
-        targetImage.dataset.zoomInitialized = "true"; // Prevents re-initializing
+        
+        // Function to run the actual magnification
+        const runMagnifier = () => {
+            // Check if the image actually has dimensions now
+            if (targetImage.width > 0) {
+                magnify("myimage", 3); // Adjust zoom level here
+                targetImage.dataset.zoomInitialized = "true";
+            }
+        };
+
+        // If the image is already loaded (cached), run it immediately
+        if (targetImage.complete) {
+            runMagnifier();
+        } else {
+            // Otherwise, wait for the browser to finish downloading the image
+            targetImage.onload = runMagnifier;
+        }
     }
 });
 
