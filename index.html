@@ -680,7 +680,6 @@ body.modal-open {
   display: flex;
   align-items: flex-start; /* top-align image and text */
   gap: 1.5rem;
-  width: 100%;
 }
 
 .diagram-image {
@@ -689,8 +688,7 @@ body.modal-open {
 }
 
 .diagram-image img {
-  width: 100%;
-  height: auto;             /* preserves aspect ratio */
+  height: 100%;             /* preserves aspect ratio */
   object-fit: contain;      /* prevents cropping */
   display: block;
 }
