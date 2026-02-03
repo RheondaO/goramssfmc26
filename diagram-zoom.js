@@ -53,3 +53,13 @@ function imageZoom(imgID, resultID) {
     return {x : x, y : y};
   }
 }
+
+const observer = new MutationObserver((mutations) => {
+    const targetImage = document.getElementById("myimage");
+    if (targetImage && !targetImage.dataset.zoomInitialized) {
+        imageZoom("myimage", "myresult");
+        targetImage.dataset.zoomInitialized = "true"; // Prevents re-initializing
+    }
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
