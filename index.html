@@ -657,6 +657,26 @@ body.modal-open {
 /* ----------------------------------------------------------*/ /* -----------------------------------------------------------*/ /* ---------------------------------------------------------*/
 /* ---------------V 03-DATA SCHEMA CSS V--------------------*/ /* -------------------V 03-DATA SCHEMA CSS V------------------*/ /* ---------------V 03-DATA SCHEMA CSS V=--------------------*/ 
 
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a8a8a8;
+    --accent: #d4af37;
+    --accent-dim: #8b7355;
+}
+
+.descriptions-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .diagram-container {
     max-width: 1800px;
     margin: 0 auto;
@@ -669,12 +689,51 @@ body.modal-open {
 }
 
 .diagram-image {
-    position: relative;
-    width: calc(33.333% - 2rem);
-    min-width: 300px;
-    max-width: 500px;
-    perspective: 1500px;
-    cursor: pointer;
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--bg-secondary);
+    object-fit: contain;
+}
+
+.wireframe-section:hover {
+    z-index: 50;
+}
+
+.wireframe-section:nth-child(1) .image-container {
+    animation-delay: 0s;
+}
+
+.wireframe-section:nth-child(2) .image-container {
+    animation-delay: -2s;
+}
+
+.wireframe-section:nth-child(3) .image-container {
+    animation-delay: -4s;
+}
+
+.wireframe-section:hover .image-container {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+.wireframe-section:hover .image-container::before {
+    opacity: 1;
+}
+
+@media (max-width: 1200px) {
+    .wireframe-section {
+        width: calc(50% - 1.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .wireframe-section {
+        width: 100%;
+        max-width: 100%;
+    }
 }
         
 /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/ /* ----------------------------------------------------------*/
