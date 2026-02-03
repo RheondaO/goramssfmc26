@@ -698,9 +698,11 @@ body.modal-open {
 }
 
 .diagram-image img {
-  height: 100%;             /* preserves aspect ratio */
-  object-fit: contain;      /* prevents cropping */
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--bg-secondary);
+    object-fit: contain;
 }
 
 .disclaimer p { 
