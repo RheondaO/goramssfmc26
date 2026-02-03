@@ -64,7 +64,7 @@ const observer = new MutationObserver((mutations) => {
     const targetImage = document.getElementById("myimage");
     if (targetImage && !targetImage.dataset.zoomInitialized) {
         /* Execute the magnify function: */
-        magnify("myimage", 3);
+        magnify("myimage", 10);
         /* Specify the id of the image, and the strength of the magnifier glass: */
         targetImage.dataset.zoomInitialized = "true"; // Prevents re-initializing
     }
